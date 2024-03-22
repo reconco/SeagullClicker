@@ -1,0 +1,39 @@
+﻿<Window x:Class="SeagullClicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeagullClicker"
+        mc:Ignorable="d"
+        Title="SeagullClicker" Height="328" Width="238" FontSize="14" ResizeMode="NoResize"
+        SourceInitialized="Window_SourceInitialized" Closed="Window_Closed">
+
+    <Grid Background="LightGray">
+        <StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center" ToolTip="타이머가 끝난 뒤 클릭될 화면의 좌표입니다.">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="클릭 좌표 : X "/>
+                <TextBox x:Name="pointX" Text="00000" Width="50" MaxLength="7" IsEnabled="False"/>
+                <TextBlock Text=" Y "/>
+                <TextBox x:Name="pointY" Text="00000" Width="50" MaxLength="7" IsEnabled="False"/>
+            </StackPanel>
+            <!--<Button x:Name="retargetingButton" Content="좌표 재지정" Width="150" Click="retargetingButton_Click" Margin="0,2,0,0"/>-->
+            <TextBlock Text="[Ctrl]+[Shift]+[1] 키를 눌러&#10;현재 마우스 커서 좌표로 재지정" FontSize="12" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" ToolTip="몇 초 뒤에 해당 좌표에 클릭할지 설정합니다.">
+                <TextBlock Text="타이머 시간 : "/>
+                <local:NumberTextbox x:Name="timerNumberTextBox"/>
+                <TextBlock Text=" 초 후 클릭"/>
+            </StackPanel>
+            <Button x:Name="saveButton" Content="좌표, 시간 설정 저장" Width="150" Click="saveButton_Click" Margin="0,12,0,0" ToolTip="설정을 저장하여 다시 실행할때 저장된 값으로 시작할 수 있습니다.&#10;단축키 [Ctrl]+[Shift]+[2]"/>
+            <Grid Background="Gray" Height="1" Margin="0,10"/>
+            <Button x:Name="topMostButton" Content="프로그램 최상단 표시" Width="180" Click="topMostButton_Click" Margin="0,6,0,0" ToolTip="다른 프로그램에 포커스를 옮겨도 이 프로그램을 항상 위에 표시합니다."/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock Text="현재 남은 시간" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Grid Background="DarkGray">
+                <TextBlock x:Name="leftTimeText" Text="30" HorizontalAlignment="Center" FontSize="40" FontWeight="Heavy"/>
+            </Grid>
+            <Button x:Name="startButton" Content="타이머 시작" Width="150" Click="startButton_Click" Margin="0,2,0,0" ToolTip="타이머를 시작하여 설정된 시간 뒤에 해당 위치를 클릭 1회를 수행합니다.&#10;단축키 [Ctrl]+[Shift]+[3]"/>
+        </StackPanel>
+    </Grid>
+</Window>
